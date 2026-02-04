@@ -1,0 +1,71 @@
+<div class="bg-gray-50 overflow-auto w-full h-full flex flex-col justify-between rounded-3xl p-8 space-y-8">
+    <div class="space-y-8">
+        <!-- Header -->
+        <div class="border-b-2 border-gray-300 pb-4">
+            <h1 class="text-2xl font-bold text-gray-700">جزئیات درخواست</h1>
+        </div>
+
+        <!-- Reservation Details -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <div>
+                <div class="text-gray-500 text-sm">نام کامل</div>
+                <div class="text-lg font-semibold text-gray-700"><%= reservation.fullname %></div>
+            </div>
+
+            <div>
+                <div class="text-gray-500 text-sm">شماره</div>
+                <div class="text-lg font-semibold text-gray-700"><%= reservation.phone %></div>
+            </div>
+
+            <div>
+            <div class="text-gray-500 text-sm">وضعیت درخواست</div>
+            <div class="text-lg font-semibold                 
+                        <%= reservation.status === 'PENDING' ? 'text-gray-600' : '' %>
+                        <%= reservation.status === 'ACCEPTED' ? 'text-green-600' : '' %>
+                        <%= reservation.status === 'DECLINED' ? 'text-red-600' : '' %>">
+                            <%= reservation.status === 'PENDING' ? 'بررسی نشده' : '' %>
+                            <%= reservation.status === 'ACCEPTED' ? 'تایید شده' : '' %>
+                            <%= reservation.status === 'DECLINED' ? 'رد شده' : '' %>
+                    </div>
+            </div>
+
+            <div>
+            <div class="text-gray-500 text-sm">نام کامل</div>
+            <div class="text-lg font-semibold text-gray-700">
+                <%= new Date(reservation.created_at * 1000).toLocaleString('fa-IR') %>
+            </div>
+            </div>
+
+        </div>
+
+        <div class="h-48">
+            <div class="text-gray-500 text-sm mb-1">پیام بیمار</div>
+            <div class="bg-white rounded-2xl overflow-auto p-4 text-xl text-gray-600 font-medium h-full w-full">
+                 <%= reservation.message.trim() != '' ? reservation.message : 'پیامی ثبت نشده است'%>
+            </div>
+        </div>
+    </div>
+  <!-- Buttons -->
+    <div class="flex gap-4 pt-6">
+        <form
+            method="POST"
+            action="/admin/reservation/<%= reservation.id %>/decline">
+            <button
+                class="bg-red-600 text-white px-6 py-2 rounded-xl hover:bg-red-700">
+                رد درخواست
+            </button>
+        </form>
+        
+        <form
+        method="POST"
+        action="/admin/reservation/<%= reservation.id %>/accept">
+            <button
+                class="bg-green-600 text-white px-6 py-2 rounded-xl hover:bg-green-700">
+                تایید درخواست
+            </button>
+        </form>
+
+    </div>
+
+</div>

@@ -1,0 +1,9 @@
+{
+    "homeTitle": "وبسایت دکتر ساناز جوانمردی | آدرس، تلفن و رزرو نوبت",
+    "doctorName": "دکتر ساناز جوانمردی",
+    "specialty": "متخصص قلب و عروق",
+    "clinicPhoneNumber": "04446257892",
+    "address": "بوکان، سه راهی سنگینی، ساختمان پزشکان میلاد",
+    "email": "dr.javanmardi@gmail.com",
+    "database_address": "./private_database.sqlite"
+}

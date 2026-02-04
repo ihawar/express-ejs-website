@@ -1,0 +1,88 @@
+<div class="pt-35 pb-16 
+container_padding flex flex-col 
+justify-center items-center
+gap-8">
+    <!-- Headings -->
+    <div class="flex flex-col gap-8 justify-center items-center">
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-700">درخواست نوبت ویزیت</h1>
+
+        <ul class="text-gray-700 text-sm space-y-4">
+            <li class="flex items-center gap-3">
+                <div class="w-2 h-2 bg-primary rounded-full"></div>
+                <span>این فرم یک درخواست اولیه است و نوبت قطعی محسوب نمی‌شود</span>
+            </li>
+
+            <li class="flex items-center gap-3">
+                <div class="w-2 h-2 bg-primary rounded-full"></div>
+                <span>کارشناسان کلینیک از طریق تماس تلفنی یا پیامک، زمان نهایی ویزیت را به شما اطلاع خواهند داد</span>
+            </li>
+
+            <li class="flex items-center gap-3">
+                <div class="w-2 h-2 bg-primary rounded-full"></div>
+                <span>لطفاً شماره تماس خود را به درستی وارد کنید</span>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- Form -->
+     <form id="reservation-form" class="bg-gray-50 rounded-3xl 
+     py-10 px-4 md:px-16 flex flex-col gap-8 md:w-[50vw]" action="" method="post">
+        
+        <p
+        id="errorBox"
+        class="text-right bg-red-100 text-red-500
+                p-4 rounded-2xl w-full font-medium text-lg
+                <%= error ? '' : 'hidden' %>">
+        <%= error || '' %>
+        </p>
+        <p
+        id="messageBox"
+        class="text-right bg-green-100 text-green-500
+                p-4 rounded-2xl w-full font-medium text-lg
+                <%= success ? '' : 'hidden' %>">
+        <%= success || '' %>
+        </p>
+
+        <div class="input_label_container">
+            <label for="fullName">نام و نام خانوادگی</label>
+            <input type="text" 
+            name="fullName" 
+            id="fullName" 
+            placeholder="مثال:‌علیرضا حقیقی"
+            required>
+        </div>
+
+        <div class="input_label_container">
+            <label for="phoneNumber">شماره تلفن</label>
+            <input type="text" 
+            name="phoneNumber" 
+            id="phoneNumber" 
+            placeholder="مثال:‌۰۹۱۲۵۵۵۳۴۲۴"
+            required>
+        </div>
+
+
+        <div class="input_label_container">
+            <label for="message">علت مراجعه یا توضیحات</label>
+            <textarea
+                class="resize-none"
+                name="message" 
+                id="message" 
+                placeholder="لطفا به طور خلاصه علت مراجعه و وضعیت بیمار را شرح دهید..."
+                maxlength=512
+                rows=5></textarea>
+        </div>
+
+        <button class="bg-primary 
+        text-white px-6 md:px-10 py-2 md:py-4
+        font-medium rounded-xl md:rounded-2xl text-xl md:text-xl
+        cursor-pointer
+        transition-all duration-200 ease-in" type="submit">
+            ارسال درخواست نوبت
+        </button>
+     </form>
+</div>
+
+<script type="module" src="/statics/js/reservationForm.js"></script>

@@ -1,0 +1,190 @@
+@import "tailwindcss";
+
+@layer base {
+    /* Set up the font */
+    @font-face {
+        font-family: 'Ravi';
+        font-style: normal;
+        font-weight: 100;
+        src: url('/statics/fonts/RaviFaNum-thin.woff') format('woff');
+    }
+
+    @font-face {
+        font-family: 'Ravi';
+        font-style: normal;
+        font-weight: 300;
+        src: url('/statics/fonts/RaviFaNum-Light.woff') format('woff');
+    }
+
+    @font-face {
+        font-family: 'Ravi';
+        font-style: normal;
+        font-weight: normal;
+        src: url('/statics/fonts/RaviFaNum-Regular.woff') format('woff');
+    }
+
+    @font-face {
+        font-family: 'Ravi';
+        font-style: normal;
+        font-weight: 500;
+        src: url('/statics/fonts/RaviFaNum-Medium.woff') format('woff');
+    }
+
+    @font-face {
+        font-family: 'Ravi';
+        font-style: normal;
+        font-weight: 600;
+        src: url('/statics/fonts/RaviFaNum-SemiBold.woff') format('woff');
+
+    }
+
+    @font-face {
+        font-family: 'Ravi';
+        font-style: normal;
+        font-weight: bold;
+        src: url('/statics/fonts/RaviFaNum-Bold.woff') format('woff');
+    }
+
+    @font-face {
+        font-family: 'Ravi';
+        font-style: normal;
+        font-weight: 900;
+        src: url('/statics/fonts/RaviFaNum-Black.woff') format('woff');
+       }
+
+    @font-face {
+        font-family: 'Ravi';
+        font-style: normal;
+        font-weight: 950;
+        src: url('/statics/fonts/RaviFaNum-ExtraBlack.woff') format('woff');
+
+    }
+    html {
+        font-family: 'Ravi', sans-serif;
+        direction: rtl;
+    }
+}
+
+@layer components {
+    .container_padding {
+        @apply px-4 md:px-16 lg:px-32;
+    }
+    .contacts_card {
+        @apply  flex-1 w-full bg-white border-2 border-primary/50 
+        p-8 rounded-2xl 
+        shadow hover:shadow-md hover:scale-105 
+        transition-all duration-200 ease-in-out
+        text-center;
+    }
+
+    .contacts_card_title {
+        @apply font-bold text-xl text-gray-700 pb-2;
+    }
+
+    .fade-bottom {
+        -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+        mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    }
+
+    .input_label_container {
+        @apply flex flex-col gap-2 ;
+    }
+
+    label {
+        @apply font-bold text-lg text-gray-700;
+    }
+
+    input, textarea {
+        @apply bg-white border-gray-400 
+        outline-hidden rounded-2xl text-xl
+        font-medium text-gray-700 py-2 px-2 
+        placeholder:text-gray-500 border-2
+        placeholder:font-normal
+        placeholder:text-lg
+        focus:border-primary;
+    }
+
+    /* Sidebar base */
+    .admin_sidebar {
+        @apply bg-gray-100 md:mr-4 rounded-2xl p-10
+            flex flex-col justify-between my-20
+            transition-all duration-300 ease-in-out ;
+    }
+
+    .admin_sidebar[data-open="true"] {
+        @apply fixed mx-4 md:mx-0 md:static md:z-auto md:w-[25vw] 
+        inset-y-0 right-0 z-50;
+    }
+
+    .admin_sidebar[data-open="false"] {
+        @apply w-20 p-4;
+    }
+
+    .sidebar-close-icon,
+    .sidebar-open-icon {
+        @apply size-8 text-gray-700 cursor-pointer;
+    }
+
+    .admin_sidebar[data-open="true"] .sidebar-open-icon {
+        @apply hidden;
+    }
+
+    .admin_sidebar[data-open="false"] .sidebar-close-icon {
+        @apply hidden;
+    }
+
+    .sidebar-home-link {
+        @apply text-primary text-xl font-bold underline
+            decoration-primary decoration-2 underline-offset-7;
+    }
+
+    .admin_sidebar[data-open="false"] .sidebar-home-link {
+        @apply hidden;
+    }
+
+    /* Nav items */
+    .nav_container {
+        @apply flex flex-col gap-8 
+    }
+    .admin_sidebar[data-open="false"] .nav_container {
+        @apply items-center;
+    }
+
+    .admin_nav_item {
+        @apply flex items-center gap-4 text-2xl font-semibold
+            text-gray-600 transition-all duration-200
+            hover:mr-2;
+    }
+
+    .admin_sidebar[data-open="false"] .admin_nav_item {
+        @apply justify-center;
+    }
+
+    .admin_sidebar[data-open="false"] .nav-text {
+        @apply hidden;
+    }
+
+
+    /* Logout */
+    .sidebar-logout {
+        @apply mt-10;
+    }
+
+    .admin_sidebar[data-open="false"] .sidebar-logout {
+        @apply hidden;
+    }
+
+    .logout-btn {
+        @apply text-gray-500 border-2 border-gray-500 w-full
+            px-6 py-3 font-medium rounded-xl text-xl
+            hover:text-red-400 hover:border-red-400
+            transition-all duration-200 cursor-pointer;
+    }
+}
+
+@theme {
+    --color-primary: #40b1e6;
+    --color-primary-light: #77cbf2;
+    --color-secondary: #e6af40;
+    --color-secondary-light: #f0c673;
+}

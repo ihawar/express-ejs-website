@@ -1,0 +1,22 @@
+{
+  "name": "doctor-website",
+  "version": "1.0.0",
+  "description": "A personal website for doctors(Persian).",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon -e 'ejs css' --env-file=.env index.js"
+  },
+  "author": "ihawar",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.18",
+    "better-sqlite3": "^12.6.2",
+    "cookie-parser": "^1.4.7",
+    "ejs": "^4.0.1",
+    "express": "^5.2.1",
+    "nodemon": "^3.1.11",
+    "tailwindcss": "^4.1.18"
+  },
+  "type": "module"
+}
